@@ -45,7 +45,7 @@ export default function CodeEditor({ value, onChange, language = "javascript" }:
         })
 
         // Create or update the editor model with a valid URI
-        const modelUri = monaco.Uri.parse("file:///" + (window.currentFilePath || "untitled"));
+        const modelUri = monaco.Uri.parse("file:///" + ((window as any).currentFilePath || "untitled"));
         let model = monaco.editor.getModel(modelUri);
         if (!model) {
           model = monaco.editor.createModel(value, language, modelUri);
